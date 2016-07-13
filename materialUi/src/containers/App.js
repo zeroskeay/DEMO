@@ -5,6 +5,8 @@ import getMuiTheme from 'material-ui/styles/getMuiTheme';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 
 import AppBar from '../components/AppBar';
+import AutoComplete from '../components/AutoComplete';
+import Avatar from '../components/Avatar';
 
 
 const muiTheme = getMuiTheme({
@@ -21,7 +23,11 @@ export default class App extends Component{
 	render(){
 		return(
 			<MuiThemeProvider muiTheme={muiTheme}>
-		        <AppBar />
+				<div>
+			        <AppBar />
+			        <AutoComplete />
+			        <Avatar />
+		        </div>
 		  	</MuiThemeProvider>
 		)
 	}
