@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <!-- <link rel="stylesheet" type="text/css" href="css/normalize.css"> -->
+  <link rel="stylesheet" type="text/css" href="css/style.css">
+</head>
+
+<body>
+  <section>
+    <div class="blue"></div>
+    <div class="red"></div>
+    <div class="green"></div>
+  </section>
+  <script src="js/anime.js"></script>
+  <script>
+  var blueAnimation = anime({
+    targets: '.blue',
+    translateX: 200,
+    direction: 'alternate'
+    autoplay: false
+  });
+  blueAnimation.play();
+  blueAnimation.settings.complete = () =>{ blueAnimation.restart() }
+  var redAnimation = anime({
+    targets: '.red',
+    translateX: 200,
+    direction: 'alternate',
+    autoplay: false
+  });
+  var greenAnimation = anime({
+    targets: '.green',
+    translateX: 200,
+    direction: 'alternate',
+    autoplay: false
+  });
+  blueAnimation.settings.complete = function() {
+    greenAnimation.restart();
+  }
+  redAnimation.settings.complete = function() {
+    blueAnimation.restart();
+  }
+  greenAnimation.settings.complete = function() {
+    redAnimation.restart();
+  }
+  greenAnimation.play();
+  </script>
+</body>
+
+</html>
